@@ -18,3 +18,25 @@ previousNumberClass.split(" ").forEach((cls) => previousNumberClass.classList.ad
 const currentNumberClass = "flex max-w-lg h-1/3 pb-2 text-x1"
 const currentNumber = document.querySelector('.currentNumber');
 currentNumberClass.split(" ").forEach((cls) => currentNumberClass.classList.add(cls));
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((btn) => {
+    addClasses(btn)
+})
+
+function addClasses(button) {
+    const btnNumberClass = "hover:bg-green-500 border-green-500";
+    const btnClearClass = "hover:bg-red-500 border-red-500";
+    const btnOpClass = "hover:bg-blue-500 border-blue-500";
+
+    if(button.classList.value === "number"){
+        btnNumberClass.split(" ").forEach((cls) => button.classList.add(cls));
+    } else if (button.classList.value === "operator"){
+        btnOpClass.split(" ").forEach((cls) => button.classList.add(cls));
+    } else if (button.classList.value === "clear"){
+        btnClearClass.split(" ").forEach((cls) => button.classList.add(cls));
+    }
+
+    const baseClass = "number clear flex w-12 h-12 justify-center items-center m-1 font-bold py-2 px-2 border hover:border-transparent rounded text-white border-2 text-2x1"
+    baseClass.split(" ").forEach((cls) => button.classList.add(cls));
+}
